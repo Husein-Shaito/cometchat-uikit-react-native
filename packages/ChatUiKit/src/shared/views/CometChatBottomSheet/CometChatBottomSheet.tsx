@@ -7,7 +7,6 @@ import React, {
 } from "react";
 import {
   Animated,
-  BackHandler,
   Dimensions,
   Modal,
   View,
@@ -135,17 +134,6 @@ const CometChatBottomSheet = forwardRef(
       }
       return false;
     };
-
-    useEffect(() => {
-      const backHandler = BackHandler.addEventListener(
-        "hardwareBackPress",
-        onBackPress
-      );
-
-      return () => {
-        backHandler.remove();
-      };
-    }, [onBackPress]);
 
     useImperativeHandle(ref, () => {
       return {
